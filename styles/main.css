@@ -1,5 +1,6 @@
 :root {
   /* https://coolors.co/fd937c-ea6f54-42081c-8e2449-103957-0f2941 */
+  --bittersweet-red: #ff706b;
   --salmon: #fd937c;
   --burnt-sienna: #EA6F54;
   --chocolate-cosmos: #42081C;
@@ -12,7 +13,7 @@
 html, body {
   font-family: monospace;
   background-color: var(--rich-dark);
-  color: var(--salmon);
+  color: var(--bittersweet-red);
   font-size: 1.1rem;
 }
 
@@ -26,7 +27,7 @@ img {
 }
 
 .inverted {
-  background: var(--salmon);
+  background: var(--bittersweet-red);
   color: var(--rich-dark);
 }
 
