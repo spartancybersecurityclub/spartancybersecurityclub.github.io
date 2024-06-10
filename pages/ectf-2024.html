@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MITRE eCTF 2024</title>
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/ectf-2024.css" />
+
+    <script src="../scripts/animate-letters.js"></script>
+  </head>
+
+  <body>
+    <section id="main" class="content-width">
+      <div class="section" style="text-align: right; margin: 1rem 0">
+        <a href="/"><h3>Home</h3></a>
+      </div>
+
+      <div>
+        <h1 class="page-title" data-animate-letters>MITRE eCTF 2024</h1>
+      </div>
+
+      <div class="section image-container">
+        <figure>
+          <img
+            src="/assets/ectf-2024/team-photo.jpg"
+            alt="A picture of the eCTF 2024 MSU team members in one of the engineering building classrooms"
+          />
+          <figcaption>Our 2024 eCTF team!</figcaption>
+        </figure>
+      </div>
+
+      <div class="section">
+        <p>
+          The
+          <a
+            href="https://mitre-engenuity.org/growing-impact/ectf-embedded-capture-the-flag/"
+            >embedded cybersecurity competition</a
+          >
+          is an annual semester-long CTF run by
+          <a href="https://mitre.org123">MITRE</a> Corporation. It is an
+          attack-defense CTF which makes participants dive into cryptography and
+          embedded firmware, and design a secure system that holds up to attack
+          against other universities.
+        </p>
+        <br />
+        <p>
+          In 2024, the objective was to design firmware for a medical device
+          consisting of three boards - an application processor and two
+          auxillary components which would model devices like an insulin pump.
+          Our goal was to design and implement a protocol for all boards to
+          verify each other before booting, and provide a secure communications
+          layer that provided <em>integrity</em> and <em>authenticity</em> of
+          commands sent between boards. Our design used public key cryptography
+          combined with root certificates to perform a secure handshake before
+          boot, and used symmetric encryption with AEAD for post-boot
+          communications that was resistant to tampering.
+        </p>
+        <br />
+        <p>
+          Members of the cybersecurity club took part in the competition and
+          placed 9th out of over 95 international teams! We also had the
+          opportunity to present our design at the
+          <a href="https://www.youtube.com/watch?v=an5utl--nto"
+            >award ceremony</a
+          >
+          in Boston.
+        </p>
+        <br />
+      </div>
+
+      <div class="section">
+        <h1>Our design</h1>
+      </div>
+
+      <div class="section github-links">
+        <a
+          href="https://github.com/AdityaC4/SpartaMISC"
+          class="github-link scheme-inverted"
+        >
+          <img src="/assets/images/icon-github.svg" alt="" />
+          <div class="scheme-inverted">SpartaMISC Design</div>
+        </a>
+        <a
+          href="https://github.com/udbhav-s/ectf-tls-handshake"
+          class="github-link scheme-inverted"
+        >
+          <img src="/assets/images/icon-github.svg" alt="" />
+          <div class="scheme-inverted">Standalone handshake</div>
+        </a>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <a href="https://github.com/AdityaC4/SpartaMISC/blob/prepare-release/MITRE_eCTF_2024_Initial_Design_Document__Team_Sp4rtans.pdf">
+          Design Document
+        </a>
+      </div>
+
+      <div class="section">
+        <img
+          src="/assets/ectf-2024/2024_eCTF_Poster_Template.jpg"
+          alt="Poster featuring details about our design"
+        />
+      </div>
+
+      <div class="section">
+        <h1>Photos</h1>
+      </div>
+
+      <div class="section">
+        <figure>
+          <div class="image-row">
+            <div>
+              <img src="/assets/ectf-2024/ectf whiteboard brainstorming.jpg" />
+            </div>
+            <div>
+              <img
+                src="/assets/ectf-2024/ectf attestation success screenshot (1).jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <figcaption>
+            Brainstorming our protocol, and our first successful handshake run!
+          </figcaption>
+        </figure>
+
+        <div style="margin-top: 2rem;"></div>
+
+        <figure>
+          <div class="image-row">
+            <div>
+              <img src="/assets/ectf-2024/award1.jpeg" />
+            </div>
+            <div>
+              <img src="/assets/ectf-2024/award2.jpeg" />
+            </div>
+            <div>
+              <img src="/assets/ectf-2024/award3.jpeg" />
+            </div>
+          </div>
+          <figcaption>
+            Team members in Boston at the award ceremony
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

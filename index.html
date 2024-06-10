@@ -8,23 +8,24 @@
 
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/front-page.css" />
 
     <script src="scripts/animate-letters.js"></script>
   </head>
 
   <body>
     <section id="main" class="content-width">
-      <div class="hero">
+      <div class="section hero">
         <div class="content">
-          <h1 data-animate-letters>Spartan Cybersecurity Club</h1>
-          <div class="bio inverted">
+          <h1 class="page-title" data-animate-letters>Spartan Cybersecurity Club</h1>
+          <div class="bio scheme-inverted">
             <p>
-              We are a group of students at Michigan State pursuing ethical hacking
-              and cybersecurity skills by taking part in competitions like Capture
-              The Flag events. We also organise workshops and events to introduce
-              others to the underappreciated world of cybersecurity and create a fun
-              community at MSU led by the curiosity to explore tech and take everything
-              apart.
+              We are a group of students at Michigan State pursuing ethical
+              hacking and cybersecurity skills by taking part in competitions
+              like Capture The Flag events. We also organise workshops and
+              events to introduce others to the underappreciated world of
+              cybersecurity and create a fun community at MSU led by the
+              curiosity to explore tech and take everything apart.
             </p>
           </div>
         </div>
@@ -33,31 +34,45 @@
         </div>
       </div>
 
-      
-
-      <div class="social-media-container">
+      <div class="section social-media-container">
         <div class="bio-container">
           <div class="pattern1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 20">
               <defs>
-                <pattern id="pattern-4" patternUnits="userSpaceOnUse" width="8" height="8">
-                  <path d="M0,0 l8,8
+                <pattern
+                  id="pattern-4"
+                  patternUnits="userSpaceOnUse"
+                  width="8"
+                  height="8"
+                >
+                  <path
+                    d="M0,0 l8,8
                            M-1,7 l4,4
-                           M7,-1 l4,4" stroke="currentcolor" style="stroke: var(--pattern-channel-1, currentcolor)" />
+                           M7,-1 l4,4"
+                    stroke="currentcolor"
+                    style="stroke: var(--pattern-channel-1, currentcolor)"
+                  />
                 </pattern>
               </defs>
-              <rect fill="url(#pattern-4)" x="0" y="0" width="400" height="20"/>
+              <rect
+                fill="url(#pattern-4)"
+                x="0"
+                y="0"
+                width="400"
+                height="20"
+              />
             </svg>
           </div>
-    
+
           <div class="bio">
             <p>
-              We primarily use Discord to share communications about our latest meetings and updates.
+              We primarily use Discord to share communications about our latest
+              meetings and updates.
             </p>
           </div>
         </div>
-  
-        <div class="social-media inverted">
+
+        <div class="social-media scheme-inverted">
           <a href="https://discord.gg/rs5DY6Q9fr">
             <img src="assets/images/icon-discord.svg" alt="discord icon" />
           </a>
@@ -67,9 +82,9 @@
         </div>
       </div>
 
-      <h1 class="team-header">Team</h1>
+      <h1 class="section dashed-header">Team</h1>
 
-      <div class="team-members">
+      <div class="section team-members">
         <div class="team-member">
           <div class="member-name">Adrian Self</div>
           <p>President</p>
@@ -101,6 +116,20 @@
         <div class="team-member">
           <div class="member-name">Dr. Qiben Yan</div>
           <p>Faculty Advisor</p>
+        </div>
+      </div>
+
+      <h1 class="section dashed-header">Recent</h1>
+      <div class="section">
+        <div>
+          <a href="/pages/ectf-2024.html"><h1>MITRE eCTF 2024</h1></a>
+          <p>
+            The embedded cybersecurity competition is an annual semester-long
+            CTF run by MITRE Corporation. It is an attack-defense CTF which
+            makes participants dive into cryptography and embedded firmware, and
+            design a secure system that holds up to attack against other
+            universities.
+          </p>
         </div>
       </div>
     </section>

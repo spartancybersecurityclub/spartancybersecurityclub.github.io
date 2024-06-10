@@ -1,0 +1,83 @@
+
+.hero .logo {
+  margin: auto;
+  margin-top: 2rem;
+  width: 250px;
+}
+
+.social-media-container .bio-container {
+  flex: 1 1 0;
+}
+
+.bio {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.social-media {
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+  color: white;
+  gap: 1rem;
+}
+
+.dashed-header {
+  text-align: center;
+  overflow: hidden;
+}
+
+.dashed-header::before, .dashed-header::after {
+  content: "";
+  display: inline-block;
+  width: 50%;
+  margin: 0 .5em 0 -55%;
+  vertical-align: middle;
+  border-bottom: 1px dashed;
+}
+.dashed-header::after {
+  margin: 0 -55% 0 .5em;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 1rem;
+}
+
+.team-member {
+  /* text-align: center; */
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .hero .logo {
+    flex: 1 0 230px;
+  }
+
+  .social-media-container {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .social-media {
+    margin-top: auto;
+  }
+}
