@@ -1,6 +1,7 @@
 const sleep = (ms) => new Promise((res, rej) => setTimeout(res, ms));
 
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-/[]{}.,?";
+const characters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ÀÆÇÈÉÊÎÏÑÔŒÙÛŸàâçëîïñôœùûÿ";
 const getRandomChar = () => characters.charAt(Math.floor(Math.random() * characters.length));
 const getRandomStrSliceWithSpaces = (text, startIndex) => {
   let str = "";
@@ -24,6 +25,7 @@ window.addEventListener("load", async () => {
         const decoded = text.slice(0, i);
         const jumbled = getRandomStrSliceWithSpaces(text, i);
         elem.textContent = decoded + jumbled;
+        // debugger
         await sleep(animateSleepTimeMs);
     }
 });
