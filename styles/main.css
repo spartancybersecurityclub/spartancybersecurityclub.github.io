@@ -4,15 +4,16 @@
   /* https://coolors.co/fd937c-ea6f54-42081c-8e2449-103957-0f2941 */
   --bittersweet-red: #ff706b;
   --salmon: #fd937c;
-  --burnt-sienna: #EA6F54;
-  --chocolate-cosmos: #42081C;
-  --magenta: #8E2449;
+  --burnt-sienna: #ea6f54;
+  --chocolate-cosmos: #42081c;
+  --magenta: #8e2449;
   --blue: #103957;
-  --blue-dark: #0F2941;
-  --rich-dark: #101F2D;
+  --blue-dark: #0f2941;
+  --rich-dark: #101f2d;
 }
 
-html, body {
+html,
+body {
   font-family: monospace;
   background-color: var(--rich-dark);
   color: var(--bittersweet-red);
@@ -21,6 +22,7 @@ html, body {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 figcaption {
@@ -28,7 +30,8 @@ figcaption {
   text-align: right;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: inherit;
   font-weight: bold;
 }
@@ -53,4 +56,21 @@ a:link, a:visited {
 
 h1.page-title {
   font-size: 2.5rem;
+}
+
+.row-with-img {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 960px) {
+  .row-with-img  {
+    flex-wrap: nowrap;
+  }
+  .row-with-img .img-wrapper {
+    max-width: 30%;
+  }
 }
