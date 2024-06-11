@@ -176,6 +176,23 @@
   }
 }
 
+.event-flyers {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bittersweet-red) transparent;
+  scroll-snap-type: x mandatory;
+}
+
+.event-flyers img {
+  min-width: 300px;
+  scroll-snap-align: center;
+}
+
 @media (prefers-reduced-motion) {
   .pattern-rect {
     animation: none;
