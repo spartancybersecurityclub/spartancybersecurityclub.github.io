@@ -46,6 +46,12 @@ a:visited {
   color: var(--rich-dark);
 }
 
+.callout {
+  background-color: #ccc;
+  color: var(--blue-dark);
+  padding: 1rem;
+}
+
 #main {
   padding-bottom: 4rem;
 }
