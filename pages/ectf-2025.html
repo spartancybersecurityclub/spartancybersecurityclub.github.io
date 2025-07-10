@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MITRE eCTF 2025</title>
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <style>
+      /* html,
+      body {
+        background-color: #fbf3d1;
+        color: var(--rich-blue);
+      } */
+
+      .callout {
+        background-color: #ccc;
+        color: var(--blue-dark);
+        padding: 1rem;
+      }
+
+      .github-links {
+        display: flex;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      a.github-link {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .github-link img {
+        width: 50px;
+      }
+
+      /* @media (min-width: 960px) {
+        .image-container {
+          width: 60%;
+          float: left;
+          margin-right: 2rem;
+          margin-bottom: 1rem;
+        }
+      } */
+
+      figure {
+        margin: 2rem auto;
+      }
+
+      figure img {
+        width: 640px;
+        margin: auto;
+      }
+
+      /* .image-row {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      @media (min-width: 960px) {
+        .image-row {
+          flex-wrap: nowrap;
+        }
+
+        .image-row img {
+          flex: 1;
+        }
+      } */
+
+      .section p {
+        margin-bottom: 1rem;
+      }
+    </style>
+
+    <script src="../scripts/animate-letters.js"></script>
+  </head>
+
+  <body>
+    <section id="main" class="content-width">
+      <div class="section" style="text-align: right; margin: 1rem 0">
+        <a href="/"><h3>Home</h3></a>
+      </div>
+
+      <div>
+        <h1 class="page-title" data-animate-letters>MITRE eCTF 2025</h1>
+      </div>
+
+      <!-- <div class="section image-container">
+        <figure>
+          <img
+            src="/assets/ectf-2025/eCTF 2025.jpg"
+            width="1120"
+            height="840"
+            alt="A picture of the eCTF 2025 MSU team members in a classroom"
+          />
+          <figcaption>Our 2025 eCTF team!</figcaption>
+        </figure>
+      </div> -->
+
+      <div class="section">
+        <p class="callout">
+          🏴 The
+          <a
+            href="https://mitre-engenuity.org/growing-impact/ectf-embedded-capture-the-flag/"
+            >embedded cybersecurity competition</a
+          >
+          is an annual semester-long CTF run by
+          <a href="https://mitre.org123/">MITRE</a> Corporation. It is an
+          attack-defense CTF which makes participants dive into cryptography and
+          embedded firmware, and design a secure system that holds up to attack
+          against other universities.
+        </p>
+        <p>
+          The 2025 competition ran from January 15th through April 16th with an
+          Award Ceremony on April 25th. MSU&#39;s team finished 21st out 116
+          international teams, with 4 out of 5 defense flags intact throughout
+          the whole competition!
+        </p>
+        <figure>
+          <img
+            src="/assets/ectf-2025/eCTF 2025.jpg"
+            width="1120"
+            height="840"
+            alt="A picture of the eCTF 2025 MSU team members in a classroom"
+          />
+          <figcaption>Our 2025 eCTF team!</figcaption>
+        </figure>
+        <p>
+          In the 2025 eCTF, teams designed and implemented a Satellite TV
+          system. The system had to securely encode and decode satellite TV data
+          streams while protecting against unauthorized access to protected
+          channels.
+        </p>
+        <p>
+          The main challenge for this year&#39;s competition was
+          <em>broadcast encryption</em>, where the same data stream is shared
+          from the satellite with every client (decoder), and has to be decoded
+          by only authorized clients without the use of bi-directional
+          communication.
+        </p>
+        <figure>
+          <img
+            src="/assets/ectf-2025/2025 eCTF High Level System.png"
+            width="3565"
+            height="1448"
+            style="background: white; padding: 1rem;"
+            alt="High level system overview of the eCTF 2025 scenario featuring the Uplink, Satellite, TV, and Decoder"
+          />
+          <figcaption>The components in the 2025 scenario</figcaption>
+        </figure>
+        <p>
+          This ruled out simpler schemes like challenge-response and required us
+          to come up with a key distribution and encryption mechanism that
+          uniquely applied to the situation at hand - effectively sharing a
+          unique password per frame for channels with up to 2^64 frames, and a
+          subscription to an arbitrary start and end timestamp.
+        </p>
+        <figure>
+          <img
+            src="/assets/ectf-2025/Hash Tree.jpg"
+            width="662"
+            height="421"
+            alt="A binary tree diagram demonstrating the hash tree construction"
+          />
+          <figcaption>The binary hash tree in question</figcaption>
+        </figure>
+        <p>
+          We did this by using a downwards hash tree, which was a binary tree
+          where the root node was successively hashed with unique
+          &quot;left&quot; and &quot;right&quot; values to derive children
+          nodes. The height of the tree was 64, which meant there were 2^64
+          leaves - each representing a frame in our scenario. This way, having
+          access to a parent node let you decrypt every frame under its
+          descendants, while going the other way around was infeasible by
+          needing to compute a hash pre-image. This meant we could grant
+          decoders fine-grained access to a range of frames from 0 to 2^64, each
+          with a unique decryption password, by sharing on average only ~70
+          unique values!
+        </p>
+
+        <p>
+          Our design was also coded in Rust to avoid common memory safety pitfalls, and as an experience for getting more familiar with the language in an embedded context 🦀
+        </p>
+        <br />
+      </div>
+
+      <div class="section">
+        <h1>Our design</h1>
+      </div>
+
+      <div class="section github-links">
+        <a
+          href="https://github.com/udbhav-s/eCTF-2025-MSU"
+          class="github-link scheme-inverted"
+        >
+          <img src="/assets/images/icon-github.svg" alt="" />
+          <div class="scheme-inverted">eCTF 2025 Design</div>
+        </a>
+        <a
+          href="https://github.com/udbhav-s/eCTF-2025-MSU-attacks/"
+          class="github-link scheme-inverted"
+        >
+          <img src="/assets/images/icon-github.svg" alt="" />
+          <div class="scheme-inverted">Attack writeups</div>
+        </a>
+      </div>
+
+      <div style="margin-top: 1rem">
+        <a
+          href="https://github.com/udbhav-s/eCTF-2025-MSU/blob/release/MSU_eCTF_2025.pdf"
+        >
+          Design Document
+        </a>
+      </div>
+
+      <div class="section">
+        <img
+          src="/assets/ectf-2025/eCTF 2025 Poster MSU.png"
+          alt="Poster featuring details about our design"
+        />
+      </div>
+
+      <!-- <div class="section">
+        <h1>Photos</h1>
+      </div> -->
+
+      <!-- <div class="section">
+        <figure>
+          <div class="image-row">
+            <div>
+              <img src="/assets/ectf-2024/ectf whiteboard brainstorming.jpg" />
+            </div>
+            <div>
+              <img
+                src="/assets/ectf-2024/ectf attestation success screenshot (1).jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <figcaption>
+            Brainstorming our protocol, and our first successful handshake run!
+          </figcaption>
+        </figure>
+
+        <div style="margin-top: 2rem"></div> -->
+
+        <!-- <figure>
+          <div class="image-row">
+            <div>
+              <img src="/assets/ectf-2024/award1.jpeg" />
+            </div>
+            <div>
+              <img src="/assets/ectf-2024/award2.jpeg" />
+            </div>
+            <div>
+              <img src="/assets/ectf-2024/award3.jpeg" />
+            </div>
+          </div>
+          <figcaption>Team members in Boston at the award ceremony</figcaption>
+        </figure>
+      </div> -->
+
+      <div class="section">
+        <h1>Team Members</h1>
+        <p>
+          Udbhav Saxena, Adrian Self, Maksim Savich, Charles Selipsky, Samuel
+          Lain Hedden, Doruk Alp Mutlu, Fatima Saad, Mariana Vangelov, Matteo
+          Krivitzky, Jonathan Bolton, Felipe Marques Allevato, Shamar Dotson,
+          Raj Dhullipalla, Aditya Chaudhari, Aashish Harishchandre, Lucas Bosca,
+          Caroline Huang, Conner O'Sullivan
+        </p>
+        <p>Advisor: Dr. Qiben (Ben) Yan</p>
+      </div>
+    </section>
+  </body>
+</html>
